@@ -17,7 +17,7 @@ where it runs all non-unbreakable-tie eliminations automatically.\
 """
 
 # I'll assume we don't have more than 10 candidates
-PLACES = ['1st','2nd','3rd','4th','5th','6th','7th','8th','9th','10th']
+PLACES = ['1st','2nd','3rd','4th','5th','6th','7th','8th','9th','10th','11th','12th','13th','14th','15th','16th','17th','18th','19th','20th']
 def int_or_none(string):
     # returns None if it's "0", or the number otherwise
     return int(string) or None
@@ -29,13 +29,13 @@ def read_votes(filename):
     """
 
     with open(filename) as f:
-        names = f.readline()[:-1].split('\t')
+        names = f.readline()[:-1].split(',')
         lines = f.readlines()
 
     # table starts off as voters x candidates
     votes = []
     for line in lines:
-        out = map(int_or_none,line.split())
+        out = map(int_or_none,line.split(','))
         votes.append(out)
     return VoteTable(votes,names)
 
